@@ -10,21 +10,39 @@ public abstract class Characters {
     protected Stats stat;
     protected Inventory inv;
     protected double Health;
-    protected int Experience;
+    protected long Experience;
 
     // Stupid constants
     protected final static double HLTConvRate = 20;
     protected final static int DerivativeEXP = 10;
     
-    public abstract void attack(Character other);
-    public abstract void UseItem(int item);
+    public abstract double attack(Characters other);
+    public abstract Items UseItem(int item);
+    public abstract void getHit(double damage);
+
+
+    // GETTERS
+    public Stats getStats(){
+        return this.stat;
+    }
+
+    public double getHealth(){
+        return this.Health;
+    }
+
+    // Levels formula is derivative of EXP (10) * sqrt(EXP) * L, so L = sqrt (EXP / 10)
+    public int getLevel(){
+        return (int) Math.sqrt(this.Experience / DerivativeEXP);
+    }
 
     public Characters(int HLT, int ATK, int DEF, int SPD, int MAG){
         this.stat = new Stats(HLT, ATK, DEF, SPD, MAG);
         this.inv = new Inventory();
         this.Health = this.stat.HLT * HLTConvRate;
-        this.Experience = DerivativeEXP;
+        this.Experience = 1;
     }
+
+    
 
     
 
