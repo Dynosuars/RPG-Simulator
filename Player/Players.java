@@ -28,11 +28,11 @@ public class Players extends Characters{
         }
 
         // I am no math lunatics so I js figured out something I GUESS BRO. I NEVER MADE A GAME LIKE THIS
-        //multiplier += Math.log10(this.getLevel() - other.getLevel()); 
+        multiplier += Math.log10(this.stat.ATK - other.getStats().ATK); 
         
-        damage = this.stat.ATK * 3;
+        damage = this.stat.ATK * 3 * multiplier;
         System.out.println("Multiplier: " + multiplier);
-        System.out.println(this.getLevel() / other.getLevel());
+        System.out.println(this.stat.ATK - other.getStats().ATK);
         other.getHit(damage);
         return damage;
     }
@@ -45,7 +45,9 @@ public class Players extends Characters{
 
     @Override
     public void getHit(double damage){
-        this.Health -= damage;
+        System.out.println("DAMAGE RED: " + (1 - (damage/this.stat.DEF)/ 100));
+        System.out.println("True damage delt: " + damage * (1 - (damage/this.stat.DEF)/ 100));
+        this.Health -= damage * (1 - (damage/this.stat.DEF)/ 100);
     }
 
 
