@@ -18,7 +18,16 @@ public abstract class Characters {
     
     public abstract double attack(Characters other);
     public abstract Items UseItem(int item);
-    public abstract void getHit(double damage);
+
+
+
+    public void getHit(double damage){
+        this.Health -= damage;
+    }
+
+    public void Heal(double heal){
+        this.Health += heal;
+    }
 
 
     // GETTERS

@@ -25,14 +25,14 @@ public class Players extends Characters{
         if(this.stat.ATK > other.getStats().DEF){
             if(new Random().nextInt(0, 100) < 20)
                 multiplier = 4; // HOI4 ass crit system
+            else multiplier = 1.5;
         }
 
         // I am no math lunatics so I js figured out something I GUESS BRO. I NEVER MADE A GAME LIKE THIS
-        multiplier += Math.log10(this.stat.ATK - other.getStats().ATK); 
+        multiplier += this.stat.ATK > other.getStats().ATK ? Math.log10(this.stat.ATK - other.getStats().ATK) : 0;
         
         damage = this.stat.ATK * 3 * multiplier;
         System.out.println("Multiplier: " + multiplier);
-        System.out.println(this.stat.ATK - other.getStats().ATK);
         other.getHit(damage);
         return damage;
     }
@@ -43,12 +43,12 @@ public class Players extends Characters{
         return success ? this.inv.getActive()[item] : null;
     }
 
-    @Override
+    /*@Override
     public void getHit(double damage){
         System.out.println("DAMAGE RED: " + (1 - (damage/this.stat.DEF)/ 100));
         System.out.println("True damage delt: " + damage * (1 - (damage/this.stat.DEF)/ 100));
         this.Health -= damage * (1 - (damage/this.stat.DEF)/ 100);
-    }
+    }*/
 
 
 }

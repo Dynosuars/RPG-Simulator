@@ -11,10 +11,10 @@ public abstract class Items{
     protected final long id;
     protected int durability;
 
-    public Items(String name, Functional func){
+    public Items(String name, int id, Functional func){
         this.name = name;
         this.func = func;
-        this.id = -1;
+        this.id = id;
     }
 
     public abstract boolean call(Characters chars);
