@@ -43,6 +43,7 @@ public class Players extends Characters{
         return success ? this.inv.getActive()[item] : null;
     }
 
+    // I MIGHT ADD THIS BACK
     /*@Override
     public void getHit(double damage){
         System.out.println("DAMAGE RED: " + (1 - (damage/this.stat.DEF)/ 100));

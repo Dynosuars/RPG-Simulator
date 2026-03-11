@@ -8,7 +8,7 @@ public abstract class Items{
     
     protected final Functional func;
     protected final String name;
-    protected final long id;
+    public final long id;
     protected int durability;
 
     public Items(String name, int id, Functional func){
@@ -18,6 +18,11 @@ public abstract class Items{
     }
 
     public abstract boolean call(Characters chars);
+
+    @Override
+    public String toString(){
+        return this.name;
+    }
 
 
 }

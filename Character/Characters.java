@@ -1,5 +1,5 @@
 package Character;
-
+import java.util.ArrayList;
 public abstract class Characters {
 
     // Useless features
@@ -20,12 +20,27 @@ public abstract class Characters {
     public abstract Items UseItem(int item);
 
 
+    public void placeitem(Items item){
+        this.inv.Add(item);
+    }
+
+    public Items[] getActive(){
+        return this.inv.getActive().clone();
+    }
+
+    public ArrayList<Items> getInv(){
+        return this.inv.getInv();
+    }
 
     public void getHit(double damage){
         this.Health -= damage;
     }
 
     public void Heal(double heal){
+        if(this.Health + heal > this.stat.HLT * HLTConvRate){
+            this.Health = this.stat.HLT * HLTConvRate;
+            return;
+        }
         this.Health += heal;
     }
 
@@ -49,6 +64,7 @@ public abstract class Characters {
         this.inv = new Inventory();
         this.Health = this.stat.HLT * HLTConvRate;
         this.Experience = 1;
+        this.money = 0;
     }
 
     

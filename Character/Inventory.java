@@ -32,6 +32,10 @@ public class Inventory {
         return this.active;
     }
 
+    public ArrayList<Items> getInv(){
+        return this.inv;
+    }
+
     
     public boolean Use(int i, Characters target){
         
