@@ -2,12 +2,19 @@ package Enemy;
 
 import Character.Characters;
 import Character.Items;
+import Item.HP_pots;
+import java.util.Random;
 
 public class Enemies extends Characters{
 
     public Enemies(String name, int HLT, int ATK, int DEF, int SPD, int MAG){
         super(HLT, ATK, DEF, SPD, MAG);
         this.name = name;
+    }
+
+    public Items drop(){
+        // ONLY health option for now, I might add more items later
+        return new Random().nextInt(0, 100) < 200 ? new HP_pots() : null;
     }
 
     @Override

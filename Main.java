@@ -1,8 +1,7 @@
-import javax.swing.JOptionPane;
-
+import Character.*;
 import Enemy.Enemies;
-import Item.HP_pots;
 import Player.Players;
+import javax.swing.JOptionPane;
 
 public class Main {
     public final static String STORYLINEEN[] = {
@@ -22,11 +21,16 @@ public class Main {
         "Narrator: I SEEEEEEEEEE HOW IT IS",
         "Your Dearest dev: Yo player lowkey help me jump this bum",
         "Your Dearest dev: What is ur name???", //15
-        "Your Dearest dev: Well uh hello I guess, %s, please jump this bum rn"
+        "Your Dearest dev: Well uh hello I guess, %s, please jump this bum rn",
+        "Your Dearest dev: Thanks bruh, now I am gonna add looting function JUST FOR YOU. You're the HONORED ONE!",
+        "Your Dearest dev: #include <iostream>\n int main(){\n std::cout << \"Hello World!\"; \n return 0; \n }",
+        "Your Dearest dev: Oopsies I am coding in C++ lmao forgot",
+        "....",
+        "Here, I got it JUST FOR you my friend"
     };
     public static void main(String[] args) {
 
-        System.setProperty("sun.java2d.uiScale", "2.0");
+        System.setProperty("sun.java2d.uiScale", "1.0");
         int storyLine = 0;
         final String title = "RPG Simulator 0.6.7";
 
@@ -53,11 +57,58 @@ public class Main {
         Players player = new Players(name, 5, 5, 10, 5, 0);
 
         JOptionPane.showMessageDialog(null, String.format(STORYLINEEN[16], player.getName()), title, JOptionPane.INFORMATION_MESSAGE);
-        JOptionPane.showMessageDialog(null, "Now, JUMP HIM NOW!!!!!!", title, JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Your Dearest dev: Now, JUMP HIM NOW!!!!!!", title, JOptionPane.INFORMATION_MESSAGE);
 
-        Enemies narrator = new Enemies("Bum narrator", 2, 0, 1, 2, 0);
+        Enemies narrator = new Enemies("Bum narrator", 10, 0, 1, 2, 0);
         while(!narrator.isDead()){
-            
+            final String options[] = {"Attack", "Use item"};
+            option = JOptionPane.showOptionDialog(null, String.format("Your health: %.2f Narrator's health: %.2f\nWhat will you do?", player.getHealth(), narrator.getHealth()), title, JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, null);
+
+            if(option == JOptionPane.YES_OPTION){
+                double damage = player.attack(narrator);
+                JOptionPane.showMessageDialog(null, String.format("You dealt %.2f damage!", damage), title, JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                final Items items[] = player.getActive();
+                Items item;
+                String itemOptions[] = new String[items.length];
+                for(int i = 0; i < items.length; i++){
+                    if(items[i] != null){
+                        itemOptions[i] = String.format("%s (Durability: %d)", items[i].getName(), items[i].getDurability());
+                    }else{
+                        // C++ troll fr.
+                        itemOptions[i] = "nullptr";
+                    }
+                }
+                option = JOptionPane.showOptionDialog(null, "Which item do you want to use?", title, JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, itemOptions, null);
+                if(option >= 0 && option < items.length){
+                    item = player.UseItem(option);
+                }else{
+                    item = null;
+                }
+                if(item != null){
+                    JOptionPane.showMessageDialog(null, String.format("You used %s!", item.getName()), title, JOptionPane.INFORMATION_MESSAGE);
+                }else{
+                    JOptionPane.showMessageDialog(null, "You have no item in that slot!", title, JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+            if(narrator.isDead()){
+                JOptionPane.showMessageDialog(null, "Your dearest developer:You defeated the bum narrator! Congratulations!", title, JOptionPane.INFORMATION_MESSAGE);
+                break;
+            }else{
+                JOptionPane.showMessageDialog(null, String.format("Narrator's turn!"), title, JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Your dearest developer: Nah, js kidding he's a bum, he can't do none LMAOOOOOO", title, JOptionPane.INFORMATION_MESSAGE);
+            }
         }
+        JOptionPane.showMessageDialog(null, String.format(STORYLINEEN[16], player.getName()), title, JOptionPane.INFORMATION_MESSAGE);
+        storyLine++;
+        while(storyLine < 22){
+            JOptionPane.showMessageDialog(null, STORYLINEEN[storyLine], title, JOptionPane.INFORMATION_MESSAGE);
+            storyLine++;
+        }
+        String[] content = player.loots(narrator);
+        JOptionPane.showMessageDialog(null, content[0] + "\n" + content[1], title, JOptionPane.INFORMATION_MESSAGE);
+        // More updates never lmao
+        System.exit(0);
     }
+
 }

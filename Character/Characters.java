@@ -54,6 +54,10 @@ public abstract class Characters {
         return this.Health;
     }
 
+    public double getExperience(){
+        return this.Experience;
+    }
+
     // Levels formula is derivative of EXP (10) * sqrt(EXP) * L, so L = sqrt (EXP / 10)
     public int getLevel(){
         return (int) Math.sqrt(this.Experience / DerivativeEXP);

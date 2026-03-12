@@ -17,6 +17,14 @@ public abstract class Items{
         this.id = id;
     }
 
+    public String getName(){
+        return this.name;
+    }
+    
+    public int getDurability(){
+        return this.durability;
+    }
+
     public abstract boolean call(Characters chars);
 
     @Override

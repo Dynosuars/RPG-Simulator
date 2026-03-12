@@ -1,6 +1,7 @@
 package Player;
 import Character.Characters;
 import Character.Items;
+import Enemy.Enemies;
 import java.util.Random;
 
 public class Players extends Characters{
@@ -41,6 +42,20 @@ public class Players extends Characters{
     public Items UseItem(int item) {
         boolean success = this.inv.Use(item, this);
         return success ? this.inv.getActive()[item] : null;
+    }
+
+    public String[] loots(Enemies other){
+        int currlevel = this.getLevel();
+        this.Experience += other.getExperience() * 0.87 + 50;
+        Items drop = other.drop();
+        this.inv.Add(drop);
+
+        String exp, drops;
+        exp = "You gained: " + (other.getExperience() * 0.87 + 50) + " experience points" + ((currlevel!=this.getLevel())?" and leveled up! new level = " + this.getLevel() : "");
+        drops = drop != null ? "You looted: " + drop.getName() : "The enemy dropped nothing :(";
+
+        return new String[]{exp, drops};
+
     }
 
     // I MIGHT ADD THIS BACK
