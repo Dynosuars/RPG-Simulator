@@ -10,6 +10,7 @@ public class Enemies extends Characters{
     public Enemies(String name, int HLT, int ATK, int DEF, int SPD, int MAG){
         super(HLT, ATK, DEF, SPD, MAG);
         this.name = name;
+        this.Experience = 50;
     }
 
     public Items drop(){
@@ -18,6 +19,7 @@ public class Enemies extends Characters{
     }
 
     @Override
+    // This is stupid I WILL CHANGE THIS otherwise it's the same as player
     public double attack(Characters other) {
         double damage;
         double multiplier = 1;
@@ -30,11 +32,13 @@ public class Enemies extends Characters{
     }
 
     @Override
+    // This is stupid I WILL CHANGE THIS otherwise it's the same as player
     public Items UseItem(int item) {
         boolean success = this.inv.Use(item, this);
         return success ? this.inv.getActive()[item] : null;
     }
 
+    @Deprecated
     public double turn(Characters other){
         if(this.Health < this.stat.HLT * HLTConvRate * 0.3){
             if(this.inv.getActive()[0] != null && this.inv.getActive()[0].id == 0){
