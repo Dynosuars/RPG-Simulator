@@ -59,6 +59,7 @@ public class Main {
 
         JOptionPane.showMessageDialog(null, String.format(STORYLINEEN[16], player.getName()), title, JOptionPane.INFORMATION_MESSAGE);
         storyLine++;
+        // idk what I AM doing bro
         JOptionPane.showMessageDialog(null, "Your Dearest dev: Now, JUMP HIM NOW!!!!!!", title, JOptionPane.INFORMATION_MESSAGE);
 
         Enemies narrator = new Enemies("Bum narrator", 10, 0, 1, 2, 0);
