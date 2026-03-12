@@ -58,6 +58,7 @@ public class Main {
         Players player = new Players(name, 5, 5, 10, 5, 0);
 
         JOptionPane.showMessageDialog(null, String.format(STORYLINEEN[16], player.getName()), title, JOptionPane.INFORMATION_MESSAGE);
+        storyLine++;
         JOptionPane.showMessageDialog(null, "Your Dearest dev: Now, JUMP HIM NOW!!!!!!", title, JOptionPane.INFORMATION_MESSAGE);
 
         Enemies narrator = new Enemies("Bum narrator", 10, 0, 1, 2, 0);
@@ -96,6 +97,7 @@ public class Main {
                 JOptionPane.showMessageDialog(null, "Your dearest developer:You defeated the bum narrator! Congratulations!", title, JOptionPane.INFORMATION_MESSAGE);
                 break;
             }else{
+                // VERY BAD practice bro but Ion care lmao ts such a small game
                 JOptionPane.showMessageDialog(null, new Random().nextInt(0, 100) <= 50?"Narrator: Ouch that hurts lil bro": "Narrator: Boot licker!!! Get off me!!!", title, JOptionPane.INFORMATION_MESSAGE);
                 JOptionPane.showMessageDialog(null, new Random().nextInt(0, 100) <= 50?"Your dearest dev: What is you YAPPING about like S***": "Your dearest dev: Nobody even like you, stay in the corner lil bro", title, JOptionPane.INFORMATION_MESSAGE);
             }
