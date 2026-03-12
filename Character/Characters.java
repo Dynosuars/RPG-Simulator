@@ -59,6 +59,14 @@ public abstract class Characters {
         return (int) Math.sqrt(this.Experience / DerivativeEXP);
     }
 
+    public boolean isDead(){
+        return this.Health <= 0;
+    }
+
+    public String getName(){
+        return this.name;
+    }
+
     public Characters(int HLT, int ATK, int DEF, int SPD, int MAG){
         this.stat = new Stats(HLT, ATK, DEF, SPD, MAG);
         this.inv = new Inventory();

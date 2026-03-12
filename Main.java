@@ -1,5 +1,6 @@
 import javax.swing.JOptionPane;
 
+import Enemy.Enemies;
 import Item.HP_pots;
 import Player.Players;
 
@@ -21,15 +22,17 @@ public class Main {
         "Narrator: I SEEEEEEEEEE HOW IT IS",
         "Your Dearest dev: Yo player lowkey help me jump this bum",
         "Your Dearest dev: What is ur name???", //15
-        "Your Dearest dev: Yo %s ! Help me jump him yo."
+        "Your Dearest dev: Well uh hello I guess, %s, please jump this bum rn"
     };
     public static void main(String[] args) {
 
+        System.setProperty("sun.java2d.uiScale", "2.0");
         int storyLine = 0;
+        final String title = "RPG Simulator 0.6.7";
 
 
-        JOptionPane.showMessageDialog(null, "Welcome to RPG simulator!\nA game made by ME, inspiration ALSO BY ME", "RPG Simulator 0.6.7", JOptionPane.INFORMATION_MESSAGE);
-        int option = JOptionPane.showOptionDialog(null, "Do you want to hear my rant?", "RPG Simulator 0.67", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+        JOptionPane.showMessageDialog(null, "Welcome to RPG simulator!\nA game made by ME, inspiration ALSO BY ME", title, JOptionPane.INFORMATION_MESSAGE);
+        int option = JOptionPane.showOptionDialog(null, "Do you want to hear my rant?", title, JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
         if(option == JOptionPane.YES_OPTION){
             JOptionPane.showMessageDialog(null, "Lagva is so ahh, I wished I did this in C++", "Dyno's rant", JOptionPane.INFORMATION_MESSAGE);
             JOptionPane.showMessageDialog(null, "Boo, I can't even MAKE a 3d renderer here; no model", "Dyno's rant", JOptionPane.INFORMATION_MESSAGE);
@@ -43,13 +46,18 @@ public class Main {
         }
 
         while(storyLine < 16){
-            JOptionPane.showMessageDialog(null, STORYLINEEN[storyLine], "RPG Simulator 0.6.7", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, STORYLINEEN[storyLine], title, JOptionPane.INFORMATION_MESSAGE);
             storyLine++;
         }
-        String name = JOptionPane.showInputDialog(null, "Enter your name:", "RPG Simulator 0.6.7", JOptionPane.QUESTION_MESSAGE);
+        String name = JOptionPane.showInputDialog(null, "Enter your name:", title, JOptionPane.QUESTION_MESSAGE);
         Players player = new Players(name, 5, 5, 10, 5, 0);
 
-        JOptionPane.showMessageDialog(null, String.format(STORYLINEEN[16], name), "RPG Simulator 0.6.7", JOptionPane.INFORMATION_MESSAGE);
-        
+        JOptionPane.showMessageDialog(null, String.format(STORYLINEEN[16], player.getName()), title, JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Now, JUMP HIM NOW!!!!!!", title, JOptionPane.INFORMATION_MESSAGE);
+
+        Enemies narrator = new Enemies("Bum narrator", 2, 0, 1, 2, 0);
+        while(!narrator.isDead()){
+            
+        }
     }
 }
