@@ -66,7 +66,6 @@ public class Inventory {
      * @return successful use of the item, if false then the item is not used and durability is not lost
      */
     public boolean Use(int i, Characters target){
-        
         if(this.active[i] == null) return false;
         this.active[i].durability -= 1;
 
@@ -78,12 +77,6 @@ public class Inventory {
         }
 
         return !false; // Troll fr
-    }
-
-    public static void main(String[] args){
-        Players player = new Players("sigma", MAX_INV, MAX_INV, MAX_INV, MAX_INV, MAX_INV);
-        player.getItem(new HP_pots());
-        System.out.println(player.UseItem(0));
     }
 
 }

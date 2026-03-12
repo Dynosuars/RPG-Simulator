@@ -35,7 +35,8 @@ public class Players extends Characters{
         multiplier += this.stat.ATK > other.getStats().ATK ? Math.log10(this.stat.ATK - other.getStats().ATK) : 0;
         
         damage = this.stat.ATK * 3 * multiplier;
-        System.out.println("Multiplier: " + multiplier);
+        // Debug 
+        // System.out.println("Multiplier: " + multiplier);
         other.getHit(damage);
         return damage;
     }
@@ -48,8 +49,9 @@ public class Players extends Characters{
      * @return the item being used
      */
     public Items UseItem(int item) {
+        Items result = this.inv.getActive()[item];
         boolean success = this.inv.Use(item, this);
-        return success ? this.inv.getActive()[item] : null;
+        return success ? result : null;
     }
 
     /**
@@ -89,7 +91,8 @@ public class Players extends Characters{
      */
     public void increaseStat(int stat, int amount){
         if(this.skillPoints < amount){
-            System.out.println("Not enough skill points!");
+            // Debug I gotta find a way to patch this
+            // System.out.println("Not enough skill points!");
             return;
         }
         switch(stat){
