@@ -10,39 +10,15 @@
 
 
 
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+
 
 
 <!-- PROJECT LOGO AND TITLE -->
 <p align="center">
-  <a href="https://github.com/username/Project-Name">
-    <img src="images/logo.png" alt="Logo" width="100" height="100">
-  </a>
 
-  <h2 align="center">Project Title</h2>
+  <h2 align="center">RPG Simualtor</h2>
   <p align="center">
-    The purpose of this project described in one line!
-    <br />
-    <a href="https://github.com/username/Project-Name"><strong>Check the Documentation »</strong></a>
-    <br />
-    <a href="https://github.com/username/Project-Name">View a Live Demo</a>
-    •
-    <a href="https://github.com/username/Project-Name/issues/new?template=bug_report.md">Report a Bug</a>
-    •
-    <a href="https://github.com/username/Project-Name/issues/new?template=feature_request.md">Request a Feature</a>
+    A project for Intro to CS (Even though I have many years of experience <br>
   </p>
 </p>
 
@@ -68,9 +44,9 @@
 
 Here's what motivated us to start this project:
 
-- Highlight the primary motivation.
-- Discuss the problem you are trying to solve.
-- Briefly talk about the solution.
+- Honkai star rail ( The fighting system )
+- Hearts of Iron 4, the crit system
+- My dreams of Object orientated system
 
 If you face any issues, please refer to the `FAQ.md` or `HELP.md` for guidance.
 
@@ -84,6 +60,9 @@ To get the project up and running on your local system, follow these steps:
 ### Setting up:
 
 * Install the required tools:
+* JAVA
+* RUN
+* Ez
 
 
 
@@ -122,5 +101,4 @@ To get the project up and running on your local system, follow these steps:
 [JQuery-url]: https://jquery.com 
 
 
-  ```bash
-  pip install -r requirements.txt
+
