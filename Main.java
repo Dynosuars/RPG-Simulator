@@ -1,6 +1,7 @@
 import Character.*;
 import Enemy.Enemies;
 import Player.Players;
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 public class Main {
@@ -95,8 +96,8 @@ public class Main {
                 JOptionPane.showMessageDialog(null, "Your dearest developer:You defeated the bum narrator! Congratulations!", title, JOptionPane.INFORMATION_MESSAGE);
                 break;
             }else{
-                JOptionPane.showMessageDialog(null, String.format("Narrator's turn!"), title, JOptionPane.INFORMATION_MESSAGE);
-                JOptionPane.showMessageDialog(null, "Your dearest developer: Nah, js kidding he's a bum, he can't do none LMAOOOOOO", title, JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, new Random().nextInt(0, 100) <= 50?"Narrator: Ouch that hurts lil bro": "Narrator: Boot licker!!! Get off me!!!", title, JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, new Random().nextInt(0, 100) <= 50?"Your dearest dev: What is you YAPPING about like S***": "Your dearest dev: Nobody even like you, stay in the corner lil bro", title, JOptionPane.INFORMATION_MESSAGE);
             }
         }
         JOptionPane.showMessageDialog(null, String.format(STORYLINEEN[16], player.getName()), title, JOptionPane.INFORMATION_MESSAGE);
